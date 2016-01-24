@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{234DDE34-3AE8-4C75-BD94-034BDB9B53A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>cco.devops.extension.pattern.tfd</RootNamespace>
+    <AssemblyName>cco.devops.extension.pattern.tfd</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cco.devops.extension.clients.appdyn.actionhelper\cco.devops.extension.clients.appdyn.actionhelper.csproj">
+      <Project>{47f37256-6aa5-4acf-89b2-05e38bb859b8}</Project>
+      <Name>cco.devops.extension.clients.appdyn.actionhelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.framework.core.communication\cco.devops.extension.framework.core.communication.csproj">
+      <Project>{af516444-9ab4-4777-8cfa-54f47006780e}</Project>
+      <Name>cco.devops.extension.framework.core.communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.framework.core.windows\cco.devops.extension.framework.core.windows.csproj">
+      <Project>{b3c5f28e-ed15-4aaf-8f2a-bec3262ac2ef}</Project>
+      <Name>cco.devops.extension.framework.core.windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.framework.core\cco.devops.extension.framework.core.csproj">
+      <Project>{42ed0ad9-4db4-4994-b626-3b90a695d88e}</Project>
+      <Name>cco.devops.extension.framework.core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.framework.iis\cco.devops.extension.framework.core.iis.csproj">
+      <Project>{074a0cd6-4651-4454-9948-062dd2b0ecf0}</Project>
+      <Name>cco.devops.extension.framework.core.iis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.pattern.ioc\cco.devops.extension.pattern.ioc.csproj">
+      <Project>{29e1da6a-26e9-4c69-9d65-af04da56cf03}</Project>
+      <Name>cco.devops.extension.pattern.ioc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.transversal.dto\cco.devops.extension.transversal.dto.csproj">
+      <Project>{3d1e4448-7ee1-48fb-bfad-34c00d02d2df}</Project>
+      <Name>cco.devops.extension.transversal.dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.transversal.logger\cco.devops.extension.transversal.logger.csproj">
+      <Project>{777b39ff-9ac7-4c70-be7d-b5d502651891}</Project>
+      <Name>cco.devops.extension.transversal.logger</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

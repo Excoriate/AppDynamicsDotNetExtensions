@@ -31,7 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.2.2.0\lib\net35\Ninject.dll</HintPath>
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net35\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.2.3\lib\net35\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -44,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Containers\AppPoolManagerContainer.cs" />
     <Compile Include="Containers\LogManagerContainer.cs" />
+    <Compile Include="Containers\ToolsContainer.cs" />
     <Compile Include="Injector\InjectorContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +68,10 @@
     <ProjectReference Include="..\cco.devops.extension.framework.iis\cco.devops.extension.framework.core.iis.csproj">
       <Project>{074a0cd6-4651-4454-9948-062dd2b0ecf0}</Project>
       <Name>cco.devops.extension.framework.core.iis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.transversal.logger\cco.devops.extension.transversal.logger.csproj">
+      <Project>{777B39FF-9AC7-4C70-BE7D-B5D502651891}</Project>
+      <Name>cco.devops.extension.transversal.logger</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

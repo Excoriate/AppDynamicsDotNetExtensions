@@ -1,9 +1,9 @@
-﻿using Ninject;
+﻿using System.Reflection;
+using Ninject;
 using Ninject.Modules;
 using Ninject.Parameters;
-using System.Reflection;
 
-namespace CCO.Pattern.IOC.Injector.Injector
+namespace cco.devops.extension.pattern.ioc.Injector
 {
     public class InjectorContainer: NinjectModule
 

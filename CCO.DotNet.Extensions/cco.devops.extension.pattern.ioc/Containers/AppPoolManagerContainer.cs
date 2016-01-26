@@ -1,12 +1,6 @@
-﻿
-using CCO.Pattern.IOC.Injector.Injector;
-using Ninject.Modules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using cco.devops.extension.pattern.ioc.Injector;
 
-namespace CCO.Pattern.IOC.Injector.Containers
+namespace cco.devops.extension.pattern.ioc.Containers
 {
     public class AppPoolManagerContainer : InjectorContainer
     {

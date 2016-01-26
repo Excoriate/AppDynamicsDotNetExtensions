@@ -1,7 +1,7 @@
 ﻿using System;  
 using cco.devops.extension.transversal.dto.Enums.Nlog;
 
-namespace cco.devops.extension.transversal.dto.ValueObject
+namespace cco.devops.extension.transversal.dto.Log.ValueObject
 {
     public sealed  class LogVo
     {

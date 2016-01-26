@@ -1,6 +1,6 @@
-﻿using System; 
+﻿
 using cco.devops.extension.transversal.dto.Enums.Nlog;
-using cco.devops.extension.transversal.dto.ValueObject;
+using cco.devops.extension.transversal.dto.Log.ValueObject;
 using cco.devops.extension.transversal.logger.Contracts;
 using NLog;
 

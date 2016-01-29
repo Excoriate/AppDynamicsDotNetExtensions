@@ -56,6 +56,8 @@
     <Compile Include="ValueObject\Configuration\EmailsSender.cs" />
     <Compile Include="ValueObject\Log\LogVo.cs" />
     <Compile Include="ValueObject\Settings\AppSettingKeyValueVo.cs" />
+    <Compile Include="ValueObject\Settings\ScriptRunner\ScriptRunnerPathVo.cs" />
+    <Compile Include="ValueObject\Settings\ScriptRunner\ScriptRunnerVo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

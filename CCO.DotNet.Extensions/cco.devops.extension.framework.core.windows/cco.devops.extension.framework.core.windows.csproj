@@ -39,6 +39,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,10 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationSetting\ConfigurationSettingFormatter.cs" />
+    <Compile Include="ConfigurationSetting\ApplicationConfigReader.cs" />
     <Compile Include="Contracts\AppSettingKeyValueVo.cs" />
     <Compile Include="Contracts\IAppSettingReadable.cs" />
-    <Compile Include="Contracts\ISettingFormatter.cs" />
+    <Compile Include="Contracts\IConfigurationReadable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

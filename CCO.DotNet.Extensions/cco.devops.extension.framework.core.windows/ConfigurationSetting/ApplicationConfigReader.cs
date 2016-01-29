@@ -49,7 +49,27 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting
 
         public List<ConfigurationSection> GetAllConfigurationSectionsObjects()
         {
-            throw new NotImplementedException();
+            var configSectionsCollections = default(List<ConfigurationSection>);
+            var sectionGroupCollection = GetAllConfigurationGroupsObjects();
+
+            if (!object.ReferenceEquals(sectionGroupCollection, null))
+            {
+                if (sectionGroupCollection.Any())
+                {
+                    configSectionsCollections = new List<ConfigurationSection>();
+
+                    foreach (var item in (sectionGroupCollection.Where(x => !object.ReferenceEquals(x, null))))
+                        
+                    {
+                        foreach (ConfigurationSection sectionInGroup in item.Sections)
+                        {
+                            configSectionsCollections.Add(sectionInGroup);
+                        }
+
+                    }
+                }
+            }                                                                                                  
+            return configSectionsCollections;
         }
 
         public List<string> GetAllConfigurationGroupsNames()

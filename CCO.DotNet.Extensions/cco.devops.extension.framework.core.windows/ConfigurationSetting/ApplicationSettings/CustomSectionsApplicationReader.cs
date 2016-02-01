@@ -1,20 +1,29 @@
-﻿using cco.devops.extension.framework.core.windows.Contracts;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Xml;
+using cco.devops.extension.framework.core.windows.ConfigurationSetting.Runtime;
+using cco.devops.extension.framework.core.windows.ConfigurationSetting.Runtime.XmlReader;
+using cco.devops.extension.framework.core.windows.Contracts;
+using cco.devops.extension.framework.core.windows.Contracts.ConfigurationSetting;
 
-namespace cco.devops.extension.framework.core.windows.ConfigurationSetting
+namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.ApplicationSettings
 {
-    public class ApplicationConfigReader: IConfigurationReadable
+    public class CustomSectionsApplicationReader: IConfigurationReadable
     {
 
-        private Configuration GetApplicationConfig()
+        private static Configuration GetApplicationConfig()
         {
             var appConfig = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
             return object.ReferenceEquals(appConfig, default(Configuration)) ? default(Configuration) : appConfig;
         }
+
+        private static XmlDocument LoadRuntimeConfigFile()
+        {
+            return new XmlConfigurationReader().LoadRuntimeConfiguration();
+        }
+
 
         public List<string> GetAllConfigurationSectionsNames()
         {

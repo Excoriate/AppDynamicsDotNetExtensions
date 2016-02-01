@@ -39,6 +39,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,6 +50,7 @@
     <Compile Include="Configuration\ConfigurationDto.cs" />
     <Compile Include="Entities\Emails\EmailConfigurationDto.cs" />
     <Compile Include="Entities\Emails\EmailInfoDto.cs" />
+    <Compile Include="Enums\Features\EnumFeatures.cs" />
     <Compile Include="Enums\Nlog\EnumNLogStruct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObject\Configuration\ActionEnableVo.cs" />
@@ -56,8 +58,8 @@
     <Compile Include="ValueObject\Configuration\EmailsSender.cs" />
     <Compile Include="ValueObject\Log\LogVo.cs" />
     <Compile Include="ValueObject\Settings\AppSettingKeyValueVo.cs" />
-    <Compile Include="ValueObject\Settings\ScriptRunner\ScriptRunnerPathVo.cs" />
-    <Compile Include="ValueObject\Settings\ScriptRunner\ScriptRunnerVo.cs" />
+    <Compile Include="ValueObject\Settings\ScriptRunner\ScriptRunnerValuesParameters.cs" />
+    <Compile Include="ValueObject\Settings\ScriptRunner\ScriptRunnerFunctionality.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 
-namespace cco.devops.extension.framework.core.windows.Contracts
+namespace cco.devops.extension.framework.core.windows.Contracts.ConfigurationSetting
 {
     public interface IConfigurationReadable
     {

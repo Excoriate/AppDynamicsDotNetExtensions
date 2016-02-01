@@ -47,16 +47,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationSetting\ApplicationConfigReader.cs" />
+    <Compile Include="ConfigurationSetting\ApplicationSettings\CustomSectionsApplicationReader.cs" />
+    <Compile Include="ConfigurationSetting\ApplicationSettings\RuntimeConfigurationReader.cs" />
+    <Compile Include="ConfigurationSetting\Runtime\ConfigurationLoader\RuntimeConfigurationLoader.cs" />
+    <Compile Include="ConfigurationSetting\Runtime\XmlReader\XmlConfigurationReader.cs" />
     <Compile Include="Contracts\AppSettingKeyValueVo.cs" />
-    <Compile Include="Contracts\IAppSettingReadable.cs" />
-    <Compile Include="Contracts\IConfigurationReadable.cs" />
+    <Compile Include="Contracts\ConfigurationSetting\IRuntimeConfigurationReadeable.cs" />
+    <Compile Include="Contracts\ConfigurationSetting\IConfigurationReadable.cs" />
+    <Compile Include="Contracts\ConfigurationSetting\IRuntimeApplicationConfigurationLoadeable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Contracts\ConfigurationSetting\ScriptRunner\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cco.devops.extension.transversal.dto\cco.devops.extension.transversal.dto.csproj">
+      <Project>{3D1E4448-7EE1-48FB-BFAD-34C00D02D2DF}</Project>
+      <Name>cco.devops.extension.transversal.dto</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

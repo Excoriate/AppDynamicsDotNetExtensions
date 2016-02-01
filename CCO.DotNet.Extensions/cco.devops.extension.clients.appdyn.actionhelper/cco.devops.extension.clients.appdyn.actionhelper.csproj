@@ -41,6 +41,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -55,6 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\cco.devops.extension.framework.core.windows\cco.devops.extension.framework.core.windows.csproj">
+      <Project>{B3C5F28E-ED15-4AAF-8F2A-BEC3262AC2EF}</Project>
+      <Name>cco.devops.extension.framework.core.windows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\cco.devops.extension.pattern.ioc\cco.devops.extension.pattern.ioc.csproj">
       <Project>{29e1da6a-26e9-4c69-9d65-af04da56cf03}</Project>
       <Name>cco.devops.extension.pattern.ioc</Name>

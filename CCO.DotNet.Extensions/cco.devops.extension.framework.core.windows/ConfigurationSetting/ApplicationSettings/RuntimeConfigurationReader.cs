@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+using System.Collections.Generic;  
 using System.Configuration;
 using System.Linq;
 using System.Xml;
-using cco.devops.extension.framework.core.windows.ConfigurationSetting.ConfigurationHelpers;
-using cco.devops.extension.framework.core.windows.ConfigurationSetting.Runtime.XmlReader;
+using cco.devops.extension.framework.core.windows.ConfigurationSetting.ConfigurationHelpers; 
 using cco.devops.extension.framework.core.windows.Contracts.ConfigurationSetting;
 using cco.devops.extension.transversal.dto.Enums.Features;
 
@@ -43,6 +41,8 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.Appli
 
             return filteredDictionary;
         }
+
+
 
         /// <summary>
         /// ATR: Get functionality in Application Config by feature
@@ -158,6 +158,13 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.Appli
             return objToParse;
         }
 
-
+        /// <summary>
+        /// Return an key value pair collection with al features
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<string, bool> GetAllFeaturesOnly()
+        {
+            return PrepareDictionariesWithFlags(FilterDictionaryKeyValueByParameterStarWith("Feature"));
+        }
     }
 }

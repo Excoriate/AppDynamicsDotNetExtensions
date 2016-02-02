@@ -6,7 +6,10 @@ namespace cco.devops.extension.transversal.dto.Enums.Features
     {
         public enum Features
         {
-            ScriptRunner
+            ScriptRunner,
+            IISRestarter,
+            IISRecycler,
+            EventLogManager
         }
 
         public enum Functionality

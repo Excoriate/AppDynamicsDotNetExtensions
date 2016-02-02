@@ -9,7 +9,9 @@ namespace cco.devops.extension.framework.core.windows.Contracts.ConfigurationSet
         Dictionary<string, bool> GetFunctionalityByFeature(EnumFeatures.Features feature);
         Dictionary<string, string> GetValuesParametersByFeature(EnumFeatures.Features feature);
         Dictionary<string, bool> PrepareDictionariesWithFlags(Dictionary<string, string> dictionaryForParsing);
-         Dictionary<string, string> PrepareDictionariesWithStrings(Dictionary<string, string> dictionaryForParsing);
+        Dictionary<string, string> PrepareDictionariesWithStrings(Dictionary<string, string> dictionaryForParsing);
+
+        Dictionary<string, bool> GetAllFeaturesOnly();
 
 
 

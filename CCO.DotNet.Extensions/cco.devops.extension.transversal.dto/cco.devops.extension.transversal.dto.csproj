@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ConfigurationDto.cs" />
+    <Compile Include="Configuration\ScriptRunnerConfigurationDto.cs" />
     <Compile Include="Entities\Emails\EmailConfigurationDto.cs" />
     <Compile Include="Entities\Emails\EmailInfoDto.cs" />
     <Compile Include="Enums\Features\EnumFeatures.cs" />

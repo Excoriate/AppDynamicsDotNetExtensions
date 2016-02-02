@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="ConfigurationSetting\ApplicationSettings\CustomSectionsApplicationReader.cs" />
     <Compile Include="ConfigurationSetting\ApplicationSettings\RuntimeConfigurationReader.cs" />
+    <Compile Include="ConfigurationSetting\ConfigurationHelpers\AppConfigHelpers.cs" />
     <Compile Include="ConfigurationSetting\Runtime\ConfigurationLoader\RuntimeConfigurationLoader.cs" />
     <Compile Include="ConfigurationSetting\Runtime\XmlReader\XmlConfigurationReader.cs" />
     <Compile Include="Contracts\AppSettingKeyValueVo.cs" />

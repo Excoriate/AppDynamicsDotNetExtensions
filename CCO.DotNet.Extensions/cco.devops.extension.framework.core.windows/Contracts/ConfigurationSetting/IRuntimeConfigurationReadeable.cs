@@ -12,6 +12,10 @@ namespace cco.devops.extension.framework.core.windows.Contracts.ConfigurationSet
         Dictionary<string, string> PrepareDictionariesWithStrings(Dictionary<string, string> dictionaryForParsing);
 
         Dictionary<string, bool> GetAllFeaturesOnly();
+        Dictionary<string, bool> GetAnyKeyValueSettingByKey(string key);
+
+        bool CheckIfAnyKeyValueSettingIsEnabledByKey(string key);
+
 
 
 

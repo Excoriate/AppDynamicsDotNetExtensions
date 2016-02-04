@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Module\ApplicationSetting\ApplicationSettingReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +61,14 @@
     <ProjectReference Include="..\cco.devops.extension.framework.iis\cco.devops.extension.framework.core.iis.csproj">
       <Project>{074a0cd6-4651-4454-9948-062dd2b0ecf0}</Project>
       <Name>cco.devops.extension.framework.core.iis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.pattern.ioc\cco.devops.extension.pattern.ioc.csproj">
+      <Project>{29E1DA6A-26E9-4C69-9D65-AF04DA56CF03}</Project>
+      <Name>cco.devops.extension.pattern.ioc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.transversal.dto\cco.devops.extension.transversal.dto.csproj">
+      <Project>{3D1E4448-7EE1-48FB-BFAD-34C00D02D2DF}</Project>
+      <Name>cco.devops.extension.transversal.dto</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Containers\AppPoolManagerContainer.cs" />
+    <Compile Include="Containers\AppSettingReaderContainer.cs" />
     <Compile Include="Containers\LogManagerContainer.cs" />
     <Compile Include="Containers\ToolsContainer.cs" />
     <Compile Include="Injector\InjectorContainer.cs" />
@@ -60,10 +61,6 @@
     <ProjectReference Include="..\cco.devops.extension.framework.core.windows\cco.devops.extension.framework.core.windows.csproj">
       <Project>{b3c5f28e-ed15-4aaf-8f2a-bec3262ac2ef}</Project>
       <Name>cco.devops.extension.framework.core.windows</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\cco.devops.extension.framework.core\cco.devops.extension.framework.core.csproj">
-      <Project>{42ed0ad9-4db4-4994-b626-3b90a695d88e}</Project>
-      <Name>cco.devops.extension.framework.core</Name>
     </ProjectReference>
     <ProjectReference Include="..\cco.devops.extension.framework.iis\cco.devops.extension.framework.core.iis.csproj">
       <Project>{074a0cd6-4651-4454-9948-062dd2b0ecf0}</Project>

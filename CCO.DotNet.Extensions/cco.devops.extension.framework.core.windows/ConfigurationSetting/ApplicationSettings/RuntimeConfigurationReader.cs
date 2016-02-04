@@ -6,6 +6,7 @@ using System.Xml;
 using cco.devops.extension.framework.core.windows.ConfigurationSetting.ConfigurationHelpers; 
 using cco.devops.extension.framework.core.windows.Contracts.ConfigurationSetting;
 using cco.devops.extension.transversal.dto.Enums.Features;
+using NLog.Config;
 
 namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.ApplicationSettings
 {
@@ -166,5 +167,52 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.Appli
         {
             return PrepareDictionariesWithFlags(FilterDictionaryKeyValueByParameterStarWith("Feature"));
         }
+
+        /// <summary>
+        /// Get a filtered key valuen pair collection with an specific key
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public Dictionary<string, bool> GetAnyKeyValueSettingByKey(string key)
+        {
+            var finalCollection      = default(Dictionary<string, bool>);
+
+            if (!string.IsNullOrEmpty(key))
+            {
+                var auxFileteredFeatures = GetAllFeaturesOnly().Where(x =>
+               string.Equals(x.Key, key, StringComparison.CurrentCultureIgnoreCase));
+
+                if (!object.ReferenceEquals(auxFileteredFeatures, null) &&
+                    auxFileteredFeatures.Any())
+                {
+                    finalCollection = (auxFileteredFeatures) as Dictionary<string, bool>;
+
+                }
+            }
+
+            return finalCollection;
+
+        }
+
+        /// <summary>
+        /// Check if any setting is enabled or Not. 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public bool CheckIfAnyKeyValueSettingIsEnabledByKey(string key)
+        {
+            var isEnabled = default(bool);
+
+            if (!string.IsNullOrEmpty(key))
+            {
+                foreach(var item in (GetAnyKeyValueSettingByKey(key)))
+                {
+                    isEnabled = item.Value;
+                } 
+            }
+
+            return isEnabled;
+        }
+
     }
 }

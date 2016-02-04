@@ -7,7 +7,8 @@ namespace cco.devops.extension.transversal.dto.Configuration
 {
     public sealed class ScriptRunnerConfigurationDto
     {
-        Dictionary<string, bool> Functionality { get; set; }
-        Dictionary<string, string> ValuesParameters { get; set; }
+        public Dictionary<string, bool> Functionality { get; set; }
+        public Dictionary<string, string> ValuesParameters { get; set; }
+        public bool IsEnabled { get; set; }
     }
 }

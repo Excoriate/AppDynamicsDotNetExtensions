@@ -66,6 +66,7 @@
     <Compile Include="ConfigurationSetting\ApplicationConfigReaderTests.cs" />
     <Compile Include="ConfigurationSetting\ApplicationSettings\RuntimeConfigurationReaderTests.cs" />
     <Compile Include="ConfigurationSetting\Runtime\RuntimeConfigurationManagerTests.cs" />
+    <Compile Include="Module\ApplicationSetting\ApplicationSettingReaderTests.cs" />
     <Compile Include="NLogConfiguration\NlogConfigManagerTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

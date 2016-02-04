@@ -7,8 +7,7 @@ namespace cco.devops.extension.transversal.dto.Configuration
     [Serializable]
     public sealed class ConfigurationDto
     {
-        public List<ActionEnableVo> ActionsConfigured { get; set; }
-        public List<EmailsSender> EmailsConfigured { get; set; }
+        public ScriptRunnerConfigurationDto ScripRunnerSettings { get; set; }
 
 
     }

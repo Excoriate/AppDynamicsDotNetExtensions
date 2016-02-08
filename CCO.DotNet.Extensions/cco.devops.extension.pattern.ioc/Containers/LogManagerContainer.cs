@@ -1,4 +1,6 @@
 ﻿using cco.devops.extension.pattern.ioc.Injector;
+using cco.devops.extension.transversal.logger.Contracts;
+using cco.devops.extension.transversal.logger.NLogConfiguration;
 
 namespace cco.devops.extension.pattern.ioc.Containers
 {
@@ -6,8 +8,7 @@ namespace cco.devops.extension.pattern.ioc.Containers
     {
         public override void Load()
         {
-            //Bind(typeof(IConfigReadable<>)).To(typeof(AppConfigReader<>));
-
+            Bind(typeof(ILoggerConfigurable<>)).To(typeof(NlogConfigManager<>));
 
 
         }

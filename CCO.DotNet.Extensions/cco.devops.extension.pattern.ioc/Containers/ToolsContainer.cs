@@ -13,11 +13,7 @@ namespace cco.devops.extension.pattern.ioc.Containers
     {
         public override void Load()
         {
-            Bind(typeof(ILoggerConfigurable<>)).To(typeof(NlogConfigManager<>));
-            //Bind(IConfigurationReadable).To(ApplicationConfigReader);
-
-
-
+            
 
         }
     }

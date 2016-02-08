@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;  
 using System.Configuration;
-using System.Linq;
-using System.Xml;
+using System.Linq; 
 using cco.devops.extension.framework.core.windows.ConfigurationSetting.ConfigurationHelpers; 
 using cco.devops.extension.framework.core.windows.Contracts.ConfigurationSetting;
-using cco.devops.extension.transversal.dto.Enums.Features;
-using NLog.Config;
+using cco.devops.extension.transversal.dto.Enums.Features; 
 
 namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.ApplicationSettings
 {
@@ -42,8 +40,6 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.Appli
 
             return filteredDictionary;
         }
-
-
 
         /// <summary>
         /// ATR: Get functionality in Application Config by feature

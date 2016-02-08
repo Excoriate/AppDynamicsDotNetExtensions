@@ -49,10 +49,12 @@
   <ItemGroup>
     <Compile Include="ConfigurationSetting\ApplicationSettings\CustomSectionsApplicationReader.cs" />
     <Compile Include="ConfigurationSetting\ApplicationSettings\RuntimeConfigurationReader.cs" />
-    <Compile Include="ConfigurationSetting\ConfigurationHelpers\AppConfigHelpers.cs" />
+    <Compile Include="ConfigurationSetting\ApplicationSettings\ConfigurationHelpers\AppConfigHelpers.cs" />
     <Compile Include="ConfigurationSetting\Runtime\ConfigurationLoader\RuntimeConfigurationLoader.cs" />
+    <Compile Include="ConfigurationSetting\Runtime\Execution\ExecutionInformationReader.cs" />
     <Compile Include="ConfigurationSetting\Runtime\XmlReader\XmlConfigurationReader.cs" />
-    <Compile Include="Contracts\AppSettingKeyValueVo.cs" />
+    <Compile Include="Contracts\ConfigurationSetting\IConfigurationLoadeable.cs" />
+    <Compile Include="Contracts\ExecutionEnvironment\IOperativeSystemInformationLoadeable.cs" />
     <Compile Include="Contracts\ConfigurationSetting\IRuntimeConfigurationReadeable.cs" />
     <Compile Include="Contracts\ConfigurationSetting\IConfigurationReadable.cs" />
     <Compile Include="Contracts\ConfigurationSetting\IRuntimeApplicationConfigurationLoadeable.cs" />
@@ -64,9 +66,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\ConfigurationSetting\ScriptRunner\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\cco.devops.extension.transversal.dto\cco.devops.extension.transversal.dto.csproj">
       <Project>{3D1E4448-7EE1-48FB-BFAD-34C00D02D2DF}</Project>

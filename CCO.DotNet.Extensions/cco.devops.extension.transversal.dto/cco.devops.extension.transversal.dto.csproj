@@ -48,6 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ConfigurationDto.cs" />
+    <Compile Include="Configuration\EnvironmentConfigurationInformationDto.cs" />
+    <Compile Include="Configuration\EventLogManagerDto.cs" />
+    <Compile Include="Configuration\IISRecyclerConfigurationDto.cs" />
+    <Compile Include="Configuration\IISRestarterConfigurationDto.cs" />
     <Compile Include="Configuration\ScriptRunnerConfigurationDto.cs" />
     <Compile Include="Entities\Emails\EmailConfigurationDto.cs" />
     <Compile Include="Entities\Emails\EmailInfoDto.cs" />
@@ -57,8 +61,9 @@
     <Compile Include="ValueObject\Configuration\ActionEnableVo.cs" />
     <Compile Include="ValueObject\Configuration\CommunicationFunctionsVo.cs" />
     <Compile Include="ValueObject\Configuration\EmailsSender.cs" />
+    <Compile Include="ValueObject\Environment\EnvironmentInfoVo.cs" />
+    <Compile Include="ValueObject\Environment\TrackingUseInformationVo.cs" />
     <Compile Include="ValueObject\Log\LogVo.cs" />
-    <Compile Include="ValueObject\Settings\AppSettingKeyValueVo.cs" />
     <Compile Include="ValueObject\Settings\ScriptRunner\ScriptRunnerValuesParameters.cs" />
     <Compile Include="ValueObject\Settings\ScriptRunner\ScriptRunnerFunctionality.cs" />
   </ItemGroup>

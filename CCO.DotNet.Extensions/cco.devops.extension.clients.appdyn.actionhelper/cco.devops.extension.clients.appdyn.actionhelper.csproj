@@ -53,6 +53,7 @@
     <Compile Include="Actions\EventLog\EventLogExtractor.cs" />
     <Compile Include="Configuration\ConfigurationManager.cs" />
     <Compile Include="Execution\ExecutionLogic.cs" />
+    <Compile Include="LogTracker\LogAndConsoleTracker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -13,27 +13,28 @@ namespace cco.devops.extension.clients.appdyn.actionhelper
 {
     public class Program
     {
-        private static  ILoggerConfigurable<Logger> objLogger = new LogManagerContainer().GetAnyInstance
-               <ILoggerConfigurable<Logger>>();
+        
 
         private static  ConfigurationManager objConfigurationLoader = new ConfigurationManager();
 
         static void Main(string[] args)
         {
-            ConfigurationDto objConfigurationGlobal = default(ConfigurationDto); 
-            objConfigurationGlobal = new ConfigurationManager().LoadInitialConfiguration();
 
-            if (!object.ReferenceEquals(objConfigurationGlobal, null
-                ))
-            {
-                RegisterBasicExecutionInformation(objConfigurationGlobal);
+
+            //Console.WriteLine("AppDynamics Extension Triggered at {0} ", DateTime.Now);
+
+            //if (!object.ReferenceEquals(objConfigurationGlobal, null
+            //    ))
+            //{
+            //    RegisterBasicExecutionInformation(objConfigurationGlobal);
+            //    Console.WriteLine("Loading basic information (Operative System, Network, etc.");
                 
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
 
-            }
+            //}
 
 
 
@@ -42,28 +43,7 @@ namespace cco.devops.extension.clients.appdyn.actionhelper
 
 
         }
-
-        static void RegisterBasicExecutionInformation(ConfigurationDto objConfiguration)
-        {
             
-
-            objLogger.RegisterLogWithCustomInfo(transversal.dto.Enums.Nlog.EnumNLogStruct.LogType.Info,
-                new transversal.dto.Log.ValueObject.LogVo()
-                {
-                    CustomMessage = string.Format("AppDynamics Custom Dot Net Extension Loaded at {0}",
-                    DateTime.Now),
-
-                });
-
-            //objLogger.RegisterLogWithCustomInfo(transversal.dto.Enums.Nlog.EnumNLogStruct.LogType.Info,
-            //    new transversal.dto.Log.ValueObject.LogVo()
-            //    {
-            //        CustomMessage = string.Format("Machine {0}",
-            //        objConfigurationLoader.LoadInitialConfiguration(),
-
-            //    });
-
-        }
 
 
 

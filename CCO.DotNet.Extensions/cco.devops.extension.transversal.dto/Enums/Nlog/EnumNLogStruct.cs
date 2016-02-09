@@ -16,5 +16,12 @@ namespace cco.devops.extension.transversal.dto.Enums.Nlog
             Warning,
             Debug
         }
+
+        public enum TypeOfRegister
+        {
+            NLog,
+            Console,
+            All
+        }
     }
 }

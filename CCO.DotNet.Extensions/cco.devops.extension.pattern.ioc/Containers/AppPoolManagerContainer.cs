@@ -1,4 +1,6 @@
-﻿using cco.devops.extension.pattern.ioc.Injector;
+﻿using cco.devops.extension.framework.core.iis.Contracts;
+using cco.devops.extension.framework.core.iis.IISOperations;
+using cco.devops.extension.pattern.ioc.Injector;
 
 namespace cco.devops.extension.pattern.ioc.Containers
 {
@@ -6,7 +8,7 @@ namespace cco.devops.extension.pattern.ioc.Containers
     {
         public override void Load()
         {
-            //Bind(typeof(IConfigReadable<>)).To(typeof(AppConfigReader<>));
+            Bind<IISToolsReadeable>().To<IISReaderManager>();
         }
     }
 }

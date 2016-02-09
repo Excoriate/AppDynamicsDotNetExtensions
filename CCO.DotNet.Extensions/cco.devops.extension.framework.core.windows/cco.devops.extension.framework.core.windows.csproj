@@ -50,6 +50,7 @@
     <Compile Include="ConfigurationSetting\ApplicationSettings\CustomSectionsApplicationReader.cs" />
     <Compile Include="ConfigurationSetting\ApplicationSettings\RuntimeConfigurationReader.cs" />
     <Compile Include="ConfigurationSetting\ApplicationSettings\ConfigurationHelpers\AppConfigHelpers.cs" />
+    <Compile Include="ConfigurationSetting\Runtime\ConfigurationLoader\AppSettingReaderContainer.cs" />
     <Compile Include="ConfigurationSetting\Runtime\ConfigurationLoader\RuntimeConfigurationLoader.cs" />
     <Compile Include="ConfigurationSetting\Runtime\Execution\ExecutionInformationReader.cs" />
     <Compile Include="ConfigurationSetting\Runtime\XmlReader\XmlConfigurationReader.cs" />

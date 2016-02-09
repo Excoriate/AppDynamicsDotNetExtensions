@@ -18,13 +18,44 @@ namespace cco.devops.extension.clients.appdyn.actionhelper.LogTracker
         private static ILoggerConfigurable<Logger> objLogger = null;
 
 
+        public static void WriteEnabledDisabledFunctions(ConfigurationDto objConfiguration)
+        {
+            var allConfiguration = new ConfigurationManager().LoadInitialConfiguration();
+
+            if (!object.ReferenceEquals(allConfiguration, null))
+            {
+                RegisterLogFacade(string.Format("ScriptRunner is: [{0}] \n",
+                    allConfiguration.ScripRunnerSettings.IsEnabled ?
+                    "Enabled" : "Disabled"), EnumNLogStruct.TypeOfRegister.All,
+                    EnumNLogStruct.LogType.Info, true);
+
+                RegisterLogFacade(string.Format("IIS Recycler is: [{0}] \n",
+                    allConfiguration.IISRecyclerConfiguration.IsEnabled ?
+                    "Enabled" : "Disabled"), EnumNLogStruct.TypeOfRegister.All,
+                    EnumNLogStruct.LogType.Info, true);
+
+                RegisterLogFacade(string.Format("IIS Restarter is: [{0}] \n",
+                    allConfiguration.IISRestarterConfiguration.IsEnabled ?
+                    "Enabled" : "Disabled"), EnumNLogStruct.TypeOfRegister.All,
+                    EnumNLogStruct.LogType.Info, true);
+
+                RegisterLogFacade(string.Format("Event Log Manager is: [{0}] \n",
+                    allConfiguration.EventLogManager.IsEnabled ?
+                    "Enabled" : "Disabled"), EnumNLogStruct.TypeOfRegister.All,
+                    EnumNLogStruct.LogType.Info, true);
+
+            }
+
+        }
+
         /// <summary>
         /// register all type of information when AppDynamics extension is running.  Also, trace
         /// all information from execution environment. 
         /// </summary>
         /// <param name="message"></param>
         /// <param name="option"></param>
-        public static void RegisterLogFacade(string message, EnumNLogStruct.TypeOfRegister option, EnumNLogStruct.LogType typeOfLog)
+        public static void RegisterLogFacade(string message, EnumNLogStruct.TypeOfRegister option, 
+            EnumNLogStruct.LogType typeOfLog, bool withPrefix)
         {
 
             ConfigurationDto objConfigurationGlobal = default(ConfigurationDto);
@@ -43,14 +74,13 @@ namespace cco.devops.extension.clients.appdyn.actionhelper.LogTracker
                     if (!object.ReferenceEquals(objConfigurationGlobal, null))
                     {
 
-                        prefix =
+                        prefix = withPrefix ?
                             $"[AppDynamics CCO Extension on " +
-                            $"{objConfigurationGlobal.ExecutionInformation.EnvironmentInfo.MachineHostName} " +
-                            $"({objConfigurationGlobal.ExecutionInformation.TrackingUsingInfo.IpAddress}) at: " +
-                            $"{DateTime.Now.ToLongDateString()} says: "
+                            $"{objConfigurationGlobal.ExecutionInformation.EnvironmentInfo.MachineHostName} \t" +
+                            $"({objConfigurationGlobal.ExecutionInformation.TrackingUsingInfo.IpAddress}) at: \t" +
+                            $"{DateTime.Now.ToLongDateString()} says: \n" : string.Empty;
                             ;
-
-                        Console.WriteLine("{0} all configuration loaded", prefix);
+                        
                         var fixedFinalMessage = string.Concat(prefix, message);
 
                         switch (option)
@@ -98,44 +128,62 @@ namespace cco.devops.extension.clients.appdyn.actionhelper.LogTracker
         {
             if (!object.ReferenceEquals(objConfiguration, null))
             {
+                var finalMessage = BuildLogInfoWithConfigurationInformation(objConfiguration, false);
 
+                Console.WriteLine(string.Concat(finalMessage, message));
                 
-
-
+                 
 
             }
         }
 
-        private static string BuildLogInfoWithConfigurationInformation(ConfigurationDto objConfiguration)
+        public static string BuildLogInfoWithConfigurationInformation(ConfigurationDto objConfiguration, bool WithAppendLine)
         {
             var objBuilder = default(StringBuilder);
 
             if (!object.ReferenceEquals(objConfiguration, null))
             {
                 objBuilder = new StringBuilder();
-                objBuilder.AppendFormat("Hostname: {0}",
+                objBuilder.AppendFormat("Hostname: {0} ",
                     objConfiguration.ExecutionInformation.EnvironmentInfo.MachineHostName);
-                objBuilder.AppendLine();
 
-                objBuilder.AppendFormat("IPAddress: {0}",
+                if (WithAppendLine)
+                { 
+                    objBuilder.AppendLine() ;
+                }
+                
+
+                objBuilder.AppendFormat("IPAddress: {0} ",
                     objConfiguration.ExecutionInformation.TrackingUsingInfo.IpAddress);
-                objBuilder.AppendLine();
+                if (WithAppendLine)
+                {
+                    objBuilder.AppendLine() ;
+                }
 
-                objBuilder.AppendFormat("SO: {0}",
+                objBuilder.AppendFormat("SO: {0} ",
                     objConfiguration.ExecutionInformation.EnvironmentInfo.OperativeSystemVersion);
-                objBuilder.AppendLine();
+                if (WithAppendLine)
+                {
+                    objBuilder.AppendLine() ;
+                }
 
-                objBuilder.AppendFormat("UserName: {0}",
+                objBuilder.AppendFormat("UserName: {0} ",
                     objConfiguration.ExecutionInformation.TrackingUsingInfo.UserName);
-                objBuilder.AppendLine();
+                if (WithAppendLine)
+                {
+                    objBuilder.AppendLine() ;
+                }
 
-                objBuilder.AppendFormat("UserName from Domain: {0}",
+                objBuilder.AppendFormat("UserName from Domain: {0} ",
                     objConfiguration.ExecutionInformation.TrackingUsingInfo.UserDomainName);
-                objBuilder.AppendLine();
+                if (WithAppendLine)
+                {
+                    objBuilder.AppendLine() ;
+                }
 
-                objBuilder.AppendFormat("Process: {0}",
+                objBuilder.AppendFormat("Process: {0} ",
                     objConfiguration.ExecutionInformation.TrackingUsingInfo.ProcesorCount);
-                objBuilder.AppendLine();
+                //Always will b e a new Line (separator) after the last log register 
 
             }
 
@@ -144,7 +192,7 @@ namespace cco.devops.extension.clients.appdyn.actionhelper.LogTracker
 
         private static void RegisterNLogOnly(string message, ConfigurationDto objConfiguration, EnumNLogStruct.LogType typeOfLog)
         {
-            var finalMessage = BuildLogInfoWithConfigurationInformation(objConfiguration);
+            var finalMessage = BuildLogInfoWithConfigurationInformation(objConfiguration, false);
 
 
             if (!object.ReferenceEquals(objConfiguration, null))
@@ -156,7 +204,7 @@ namespace cco.devops.extension.clients.appdyn.actionhelper.LogTracker
 
                 objLogger.RegisterLogWithCustomInfo(typeOfLog, new LogVo()
                 {
-                    CustomMessage = message,
+                    CustomMessage = string.Concat(finalMessage, message),
                     CustomType    = typeOfLog
                 });
 

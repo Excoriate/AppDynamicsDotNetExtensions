@@ -13,18 +13,54 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.Runti
     {
         public EventLogManagerDto LoadEventLogManagerConfiguration()
         {
-            //throw new NotImplementedException();
-            return null;
+            IRuntimeConfigurationReadeable configLoader = default(IRuntimeConfigurationReadeable);
+            var scriptConfiguration = default(EventLogManagerDto);
+
+            configLoader = new RuntimeConfigurationReader();
+
+            scriptConfiguration = new EventLogManagerDto()
+            {
+                Functionality = configLoader.GetFunctionalityByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.EventLogManager),
+                ValuesParameters = configLoader.GetValuesParametersByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.EventLogManager)
+
+            };
+
+            return scriptConfiguration;
         }
 
         public IISRecyclerConfigurationDto LoadIISRecyclerConfiguration()
         {
-            return null;
+            IRuntimeConfigurationReadeable configLoader = default(IRuntimeConfigurationReadeable);
+            var scriptConfiguration = default(IISRecyclerConfigurationDto);
+
+            configLoader = new RuntimeConfigurationReader();
+
+            scriptConfiguration = new IISRecyclerConfigurationDto()
+            {
+                Functionality = configLoader.GetFunctionalityByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.IISRecycler),
+                ValuesParameters = configLoader.GetValuesParametersByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.IISRecycler)
+
+            };
+
+            return scriptConfiguration;
+
         }
 
         public IISRestarterConfigurationDto LoadIISRestarterCondfiguration()
         {
-            return null;
+            IRuntimeConfigurationReadeable configLoader = default(IRuntimeConfigurationReadeable);
+            var scriptConfiguration = default(IISRestarterConfigurationDto);
+
+            configLoader = new RuntimeConfigurationReader();
+
+            scriptConfiguration = new IISRestarterConfigurationDto()
+            {
+                Functionality = configLoader.GetFunctionalityByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.IISRestarter),
+                ValuesParameters = configLoader.GetValuesParametersByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.IISRestarter)
+
+            };
+
+            return scriptConfiguration;
         }
 
         /// <summary>

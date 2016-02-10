@@ -57,6 +57,12 @@
     <Folder Include="Sms\" />
     <Folder Include="WhatSapp\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cco.devops.extension.framework.core\cco.devops.extension.framework.core.csproj">
+      <Project>{42ed0ad9-4db4-4994-b626-3b90a695d88e}</Project>
+      <Name>cco.devops.extension.framework.core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

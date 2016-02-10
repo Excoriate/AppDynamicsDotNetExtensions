@@ -55,6 +55,7 @@
     <Compile Include="Configuration\ScriptRunnerConfigurationDto.cs" />
     <Compile Include="Entities\Emails\EmailConfigurationDto.cs" />
     <Compile Include="Entities\Emails\EmailInfoDto.cs" />
+    <Compile Include="Enums\EnumScriptRunner.cs" />
     <Compile Include="Enums\Features\EnumFeatures.cs" />
     <Compile Include="Enums\Nlog\EnumNLogStruct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="ValueObject\Environment\EnvironmentInfoVo.cs" />
     <Compile Include="ValueObject\Environment\TrackingUseInformationVo.cs" />
     <Compile Include="ValueObject\Log\LogVo.cs" />
+    <Compile Include="ValueObject\Scripts\PowerShellScriptVo.cs" />
     <Compile Include="ValueObject\Settings\ScriptRunner\ScriptRunnerValuesParameters.cs" />
     <Compile Include="ValueObject\Settings\ScriptRunner\ScriptRunnerFunctionality.cs" />
   </ItemGroup>

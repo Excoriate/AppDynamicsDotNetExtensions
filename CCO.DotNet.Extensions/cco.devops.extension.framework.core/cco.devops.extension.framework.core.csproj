@@ -46,33 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module\ApplicationSetting\ApplicationSettingReader.cs" />
+    <Compile Include="Contracts\IScriptShellLoadable.cs" />
+    <Compile Include="Contracts\IShellScriptExecutionable.cs" />
+    <Compile Include="Module\ScripRunner\PowerShellScriptReader.cs" />
+    <Compile Include="Module\ScripRunner\PowerShellScriptRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tracker\Log\LogTracker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\cco.devops.extension.framework.core.communication\cco.devops.extension.framework.core.communication.csproj">
-      <Project>{af516444-9ab4-4777-8cfa-54f47006780e}</Project>
-      <Name>cco.devops.extension.framework.core.communication</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\cco.devops.extension.framework.core.windows\cco.devops.extension.framework.core.windows.csproj">
-      <Project>{b3c5f28e-ed15-4aaf-8f2a-bec3262ac2ef}</Project>
-      <Name>cco.devops.extension.framework.core.windows</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\cco.devops.extension.framework.iis\cco.devops.extension.framework.core.iis.csproj">
-      <Project>{074a0cd6-4651-4454-9948-062dd2b0ecf0}</Project>
-      <Name>cco.devops.extension.framework.core.iis</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\cco.devops.extension.pattern.ioc\cco.devops.extension.pattern.ioc.csproj">
-      <Project>{29E1DA6A-26E9-4C69-9D65-AF04DA56CF03}</Project>
-      <Name>cco.devops.extension.pattern.ioc</Name>
-    </ProjectReference>
     <ProjectReference Include="..\cco.devops.extension.transversal.dto\cco.devops.extension.transversal.dto.csproj">
       <Project>{3D1E4448-7EE1-48FB-BFAD-34C00D02D2DF}</Project>
       <Name>cco.devops.extension.transversal.dto</Name>
     </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.transversal.logger\cco.devops.extension.transversal.logger.csproj">
+      <Project>{777B39FF-9AC7-4C70-BE7D-B5D502651891}</Project>
+      <Name>cco.devops.extension.transversal.logger</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Module\EventLog\" />
+    <Folder Include="Module\IIS\Recyler\" />
+    <Folder Include="Module\IIS\Restarter\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

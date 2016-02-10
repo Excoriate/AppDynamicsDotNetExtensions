@@ -180,9 +180,10 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.Appli
 
                 if (!object.ReferenceEquals(auxFileteredFeatures, null) &&
                     auxFileteredFeatures.Any())
-                {
-                    finalCollection = (auxFileteredFeatures) as Dictionary<string, bool>;
 
+                {
+                    finalCollection = auxFileteredFeatures.
+                        ToDictionary(items => items.Key, items => items.Value);
                 }
             }
 
@@ -201,10 +202,20 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.Appli
 
             if (!string.IsNullOrEmpty(key))
             {
-                foreach(var item in (GetAnyKeyValueSettingByKey(key)))
+                var auxCollection = GetAnyKeyValueSettingByKey(key);
+
+                if (!object.ReferenceEquals(auxCollection, null))
                 {
-                    isEnabled = item.Value;
-                } 
+                    if (auxCollection.Any())
+                    {
+                        foreach (var item in (GetAnyKeyValueSettingByKey(key)))
+                        {
+                            isEnabled = item.Value;
+                        }
+
+                    }
+                }
+                 
             }
 
             return isEnabled;

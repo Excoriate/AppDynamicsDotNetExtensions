@@ -14,10 +14,8 @@ using cco.devops.extension.framework.core.iis.Contracts;
 namespace cco.devops.extension.clients.appdyn.actionhelper
 {
     public class Program
-    {
+    {   
         
-
-        private static  ConfigurationManager objConfigurationLoader = new ConfigurationManager();
 
         static void Main(string[] args)
         { 
@@ -36,11 +34,11 @@ namespace cco.devops.extension.clients.appdyn.actionhelper
             LogAndConsoleTracker.WriteEnabledDisabledFunctions(new ConfigurationManager().LoadInitialConfiguration());
             Console.ReadKey();
 
-            var algo = new AppPoolManagerContainer().GetAnyInstance<IISToolsReadeable>().GetAllApplicationPoolsInCurrentEnvironment();
-            foreach (var item in algo)
-            {
-                Console.WriteLine(item);
-            }
+            //var algo = new AppPoolManagerContainer().GetAnyInstance<IISToolsReadeable>().GetAllApplicationPoolsInCurrentEnvironment();
+            //foreach (var item in algo)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
         }   
 

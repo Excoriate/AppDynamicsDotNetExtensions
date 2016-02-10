@@ -21,7 +21,8 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.Runti
             scriptConfiguration = new EventLogManagerDto()
             {
                 Functionality = configLoader.GetFunctionalityByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.EventLogManager),
-                ValuesParameters = configLoader.GetValuesParametersByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.EventLogManager)
+                ValuesParameters = configLoader.GetValuesParametersByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.EventLogManager) ,
+                IsEnabled = configLoader.CheckIfAnyKeyValueSettingIsEnabledByKey("EventLogManager")
 
             };
 
@@ -38,7 +39,8 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.Runti
             scriptConfiguration = new IISRecyclerConfigurationDto()
             {
                 Functionality = configLoader.GetFunctionalityByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.IISRecycler),
-                ValuesParameters = configLoader.GetValuesParametersByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.IISRecycler)
+                ValuesParameters = configLoader.GetValuesParametersByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.IISRecycler) ,
+                IsEnabled = configLoader.CheckIfAnyKeyValueSettingIsEnabledByKey("IISRecyler")
 
             };
 
@@ -56,7 +58,8 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.Runti
             scriptConfiguration = new IISRestarterConfigurationDto()
             {
                 Functionality = configLoader.GetFunctionalityByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.IISRestarter),
-                ValuesParameters = configLoader.GetValuesParametersByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.IISRestarter)
+                ValuesParameters = configLoader.GetValuesParametersByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.IISRestarter),
+                IsEnabled = configLoader.CheckIfAnyKeyValueSettingIsEnabledByKey("IISRestarter")
 
             };
 
@@ -76,9 +79,10 @@ namespace cco.devops.extension.framework.core.windows.ConfigurationSetting.Runti
 
             scriptConfiguration = new ScriptRunnerConfigurationDto()
             {
-                Functionality = configLoader.GetFunctionalityByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.ScriptRunner),
-                ValuesParameters = configLoader.GetValuesParametersByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.ScriptRunner)
-                
+                Functionality    = configLoader.GetFunctionalityByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.ScriptRunner),
+                ValuesParameters = configLoader.GetValuesParametersByFeature(transversal.dto.Enums.Features.EnumFeatures.Features.ScriptRunner),
+                IsEnabled        = configLoader.CheckIfAnyKeyValueSettingIsEnabledByKey("ScriptRunner")
+
             };
 
             return scriptConfiguration;

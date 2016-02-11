@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -8,14 +7,13 @@ using cco.devops.extension.framework.core.Contracts;
 using cco.devops.extension.framework.core.Tracker.Log;
 using cco.devops.extension.transversal.dto.Enums;
 using cco.devops.extension.transversal.dto.Enums.Nlog;
-using cco.devops.extension.transversal.logger.NLogConfiguration;
-using NLog;
+using System.Reflection;
 
 namespace cco.devops.extension.framework.core.Module.ScripRunner
 {
     public class PowerShellScriptReader: IScriptShellLoadable
     {
-        FileInfo IScriptShellLoadable.LoadSpecificShellScriptFromPath(string path)
+        public FileInfo LoadSpecificShellScriptFromPath(string path)
         {
             var objInfgo = default(FileInfo);
 
@@ -33,7 +31,7 @@ namespace cco.devops.extension.framework.core.Module.ScripRunner
             return objInfgo;
         }
 
-        List<FileInfo> IScriptShellLoadable.ListAllScriptsFromPath(string path)
+        public List<FileInfo> ListAllScriptsFromPath(string path)
         {
             var filesInDirectory = default(List<FileInfo>);
             var loggerHelper = new LogTracker();
@@ -65,9 +63,65 @@ namespace cco.devops.extension.framework.core.Module.ScripRunner
             return filesInDirectory;
         }
 
-        public bool CheckIfScriptFileIsFromType(EnumScriptRunner.TypeOfScriptFile typeOfScript)
+        public bool CheckIfScriptFileIsFromType(EnumScriptRunner.TypeOfScriptFile typeOfScript, string path)
         {
-            throw new NotImplementedException();
+            var isFromType = default(bool);
+            if (!string.IsNullOrEmpty(path))
+            {
+                var auxFileInfo = this.LoadSpecificShellScriptFromPath(path);
+
+                if (!object.ReferenceEquals(auxFileInfo, null) &&
+                (auxFileInfo.Exists))
+                {
+
+                    switch (typeOfScript)
+                    {
+                        case EnumScriptRunner.TypeOfScriptFile.Bat:
+                            isFromType = string.Equals(".bat", auxFileInfo.Extension, 
+                                StringComparison.InvariantCultureIgnoreCase);
+
+                            break;
+
+                        case EnumScriptRunner.TypeOfScriptFile.Batch:
+                            isFromType = string.Equals(".sh", auxFileInfo.Extension,
+                                StringComparison.InvariantCultureIgnoreCase);
+                            break;
+
+                        case EnumScriptRunner.TypeOfScriptFile.cmdlet:
+                            isFromType = string.Equals(".cmd", auxFileInfo.Extension,
+                                StringComparison.InvariantCultureIgnoreCase);
+                            break;
+
+                        case EnumScriptRunner.TypeOfScriptFile.PowerShell:
+                            isFromType = string.Equals(".ps1", auxFileInfo.Extension,
+                                StringComparison.InvariantCultureIgnoreCase);
+                            break;
+
+                        case EnumScriptRunner.TypeOfScriptFile.Jar:
+                            isFromType = string.Equals(".jar", auxFileInfo.Extension,
+                                StringComparison.InvariantCultureIgnoreCase);
+                            break; 
+                    }
+
+                }
+
+            }   
+
+            return isFromType;
+        }
+
+        public DirectoryInfo LoadExecutionDirectoryAssembly()
+        {
+            var objDirectory = default(DirectoryInfo);
+            var pathFromDll = Assembly.GetExecutingAssembly().Location.ToString(CultureInfo.InvariantCulture);
+
+            if (!string.IsNullOrEmpty(pathFromDll))
+            {
+                objDirectory = new DirectoryInfo(pathFromDll);
+            }
+
+
+            return objDirectory;
         }
     }
 }

@@ -12,7 +12,8 @@ namespace cco.devops.extension.framework.core.Contracts
     {
         FileInfo LoadSpecificShellScriptFromPath(string path);
         List<FileInfo> ListAllScriptsFromPath(string path);
-        bool CheckIfScriptFileIsFromType(EnumScriptRunner.TypeOfScriptFile typeOfScript);
+        bool CheckIfScriptFileIsFromType(EnumScriptRunner.TypeOfScriptFile typeOfScript, string path);
+        DirectoryInfo LoadExecutionDirectoryAssembly();
 
     }
 }

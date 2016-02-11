@@ -11,7 +11,7 @@ using System.Reflection;
 
 namespace cco.devops.extension.framework.core.Module.ScripRunner
 {
-    public class PowerShellScriptReader: IScriptShellLoadable
+    public class ShellScriptReader: IScriptShellLoadable
     {
         public FileInfo LoadSpecificShellScriptFromPath(string path)
         {
@@ -114,6 +114,7 @@ namespace cco.devops.extension.framework.core.Module.ScripRunner
         {
             var objDirectory = default(DirectoryInfo);
             var pathFromDll = Assembly.GetExecutingAssembly().Location.ToString(CultureInfo.InvariantCulture);
+            
 
             if (!string.IsNullOrEmpty(pathFromDll))
             {
@@ -122,6 +123,18 @@ namespace cco.devops.extension.framework.core.Module.ScripRunner
 
 
             return objDirectory;
+        }
+
+        public string MakeFullPathFromEnvironmentAndFileName(string fileName)
+        {
+            var finalPath = default(string);
+
+            if (!string.IsNullOrEmpty(fileName))
+            {
+                finalPath = Path.Combine(Environment.CurrentDirectory, fileName);
+            }
+
+            return finalPath;
         }
     }
 }

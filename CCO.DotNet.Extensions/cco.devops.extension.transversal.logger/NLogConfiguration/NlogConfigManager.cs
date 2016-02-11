@@ -3,6 +3,7 @@ using cco.devops.extension.transversal.dto.Enums.Nlog;
 using cco.devops.extension.transversal.dto.Log.ValueObject;
 using cco.devops.extension.transversal.logger.Contracts;
 using NLog;
+using System;
 
 namespace cco.devops.extension.transversal.logger.NLogConfiguration
 {
@@ -89,6 +90,27 @@ namespace cco.devops.extension.transversal.logger.NLogConfiguration
         public void RegisterLogWithCustomInfoFacade(EnumNLogStruct.LogType typeOfLog, LogVo logInfo)
         {
             ((ILoggerConfigurable<T>) this).RegisterLogWithCustomInfo(typeOfLog, logInfo);
+        }
+
+        public void RegisterLogWithFatalExceptionFacade(Exception objException, string className)
+        {
+            ((ILoggerConfigurable<T>)this).RegisterLogWithFatalException(objException, className);
+
+        }
+
+        void ILoggerConfigurable<T>.RegisterLogWithFatalException(Exception objException, string callingClass)
+        {
+            if (!object.ReferenceEquals(objException, null))
+            {
+                this.RegisterLogWithCustomInfoFacade
+                            (EnumNLogStruct.LogType.Fatal, new transversal.dto.Log.ValueObject.LogVo()
+                            {
+                                Exception = objException,
+                                CustomMessage = $"exception in {callingClass} class",
+                                CustomType = EnumNLogStruct.LogType.Fatal
+                            }
+                            ); 
+            }
         }
 
         #endregion

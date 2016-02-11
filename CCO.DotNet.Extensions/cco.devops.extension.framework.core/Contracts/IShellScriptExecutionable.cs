@@ -7,6 +7,7 @@ namespace cco.devops.extension.framework.core.Contracts
     {
         void ExecuteShellScript(PowerShellScriptVo shellScript);
         void ExecuteShellScriptWithParameter(PowerShellScriptVo shellScript, params string [] parameters);
+        bool ExecuteBatThatTriggerPowerShell(PowerShellScriptVo shellScript);
 
 
 

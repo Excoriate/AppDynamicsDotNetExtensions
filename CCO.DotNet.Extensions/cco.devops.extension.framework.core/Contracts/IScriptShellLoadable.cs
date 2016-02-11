@@ -14,6 +14,7 @@ namespace cco.devops.extension.framework.core.Contracts
         List<FileInfo> ListAllScriptsFromPath(string path);
         bool CheckIfScriptFileIsFromType(EnumScriptRunner.TypeOfScriptFile typeOfScript, string path);
         DirectoryInfo LoadExecutionDirectoryAssembly();
+        string MakeFullPathFromEnvironmentAndFileName(string fileName);
 
     }
 }

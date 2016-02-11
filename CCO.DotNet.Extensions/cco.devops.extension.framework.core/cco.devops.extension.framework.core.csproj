@@ -48,10 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IScriptRunnerPlayerable.cs" />
     <Compile Include="Contracts\IScriptShellLoadable.cs" />
     <Compile Include="Contracts\IShellScriptExecutionable.cs" />
-    <Compile Include="Module\ScripRunner\PowerShellScriptReader.cs" />
-    <Compile Include="Module\ScripRunner\PowerShellScriptRunner.cs" />
+    <Compile Include="Module\ScripRunner\ScriptRunnerPlayer.cs" />
+    <Compile Include="Module\ScripRunner\ShellScriptReader.cs" />
+    <Compile Include="Module\ScripRunner\ShellScriptRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tracker\Log\LogTracker.cs" />
   </ItemGroup>

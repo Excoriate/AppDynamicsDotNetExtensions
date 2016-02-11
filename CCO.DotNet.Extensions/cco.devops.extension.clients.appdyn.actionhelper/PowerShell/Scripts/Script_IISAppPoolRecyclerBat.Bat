@@ -1,0 +1,1 @@
+﻿powershell -command "r:\CENCOSUD\Extensiones\v1\AppDynamicsDotNetExtensions\CCO.DotNet.Extensions\cco.devops.extension.clients.appdyn.actionhelper\PowerShell\Scripts\Script_IISAppPoolRecycler.ps1 1; exit $LASTEXITCODE"

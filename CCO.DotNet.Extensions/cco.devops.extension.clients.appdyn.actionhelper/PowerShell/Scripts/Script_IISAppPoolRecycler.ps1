@@ -16,7 +16,7 @@ foreach ($a in $pools )
 	$pooltable.Add($i, $pool)
 	Write-Host "$i > Application Pool's listed in IIS Instance: $pool "
 } 
-Write-Host ""
+Write-Host ""    
 	
 	foreach ($h in $pooltable.GetEnumerator()) 
 	{   

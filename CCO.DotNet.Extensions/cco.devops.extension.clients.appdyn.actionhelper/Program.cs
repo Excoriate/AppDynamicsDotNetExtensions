@@ -10,6 +10,8 @@ using NLog;
 using cco.devops.extension.transversal.dto.Configuration;
 using cco.devops.extension.clients.appdyn.actionhelper.LogTracker;
 using cco.devops.extension.framework.core.iis.Contracts;
+using cco.devops.extension.clients.appdyn.actionhelper.Execution;
+using cco.devops.extension.framework.core.Contracts;
 
 namespace cco.devops.extension.clients.appdyn.actionhelper
 {
@@ -23,22 +25,39 @@ namespace cco.devops.extension.clients.appdyn.actionhelper
                 transversal.dto.Enums.Nlog.EnumNLogStruct.TypeOfRegister.All, 
                 transversal.dto.Enums.Nlog.EnumNLogStruct.LogType.Info, true);
 
-            TaskRunner();  
+            var objConfiguration = new ConfigurationManager().LoadInitialConfiguration();
+
+            LogAndConsoleTracker.WriteEnabledDisabledFunctions(objConfiguration);
+
+            TaskRunner(objConfiguration);  
         }
 
         /// <summary>
         /// Main Task Runner
         /// </summary>
-        static void TaskRunner()
+        static void TaskRunner(ConfigurationDto objConfiguration)
         {
-            LogAndConsoleTracker.WriteEnabledDisabledFunctions(new ConfigurationManager().LoadInitialConfiguration());
-            Console.ReadKey();
 
-            //var algo = new AppPoolManagerContainer().GetAnyInstance<IISToolsReadeable>().GetAllApplicationPoolsInCurrentEnvironment();
-            //foreach (var item in algo)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            IExecutionable objPlayer = null;
+
+            if (!object.ReferenceEquals(objConfiguration, null))
+            {   
+                objPlayer = new CoreContainer().GetAnyInstance<IExecutionable>();
+
+                if (!object.ReferenceEquals(objPlayer, null))
+                {
+                    LogAndConsoleTracker.RegisterLogFacade("Starting Executing features and functions that are enabled... \n",
+                        transversal.dto.Enums.Nlog.EnumNLogStruct.TypeOfRegister.All,
+                        transversal.dto.Enums.Nlog.EnumNLogStruct.LogType.Info, false);
+
+                }   
+
+            }
+
+
+            
+            
+
 
         }   
 

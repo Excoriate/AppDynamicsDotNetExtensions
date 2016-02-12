@@ -7,6 +7,7 @@ namespace cco.devops.extension.framework.core.Contracts
 {
     public interface IScriptRunnerPlayerable
     {
+        bool RunRecycleApplicationPoolByOrder();
 
     }
 }

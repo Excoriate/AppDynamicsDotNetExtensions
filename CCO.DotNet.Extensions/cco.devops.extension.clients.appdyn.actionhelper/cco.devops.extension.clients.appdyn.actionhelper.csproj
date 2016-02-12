@@ -56,7 +56,6 @@
     <Compile Include="Actions\ApplicationPool\ApplicationPoolOperations.cs" />
     <Compile Include="Actions\EventLog\EventLogExtractor.cs" />
     <Compile Include="Configuration\ConfigurationManager.cs" />
-    <Compile Include="Execution\ExecutionLogic.cs" />
     <Compile Include="LogTracker\LogAndConsoleTracker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,6 +64,10 @@
     <ProjectReference Include="..\cco.devops.extension.framework.core.windows\cco.devops.extension.framework.core.windows.csproj">
       <Project>{B3C5F28E-ED15-4AAF-8F2A-BEC3262AC2EF}</Project>
       <Name>cco.devops.extension.framework.core.windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cco.devops.extension.framework.core\cco.devops.extension.framework.core.csproj">
+      <Project>{42ed0ad9-4db4-4994-b626-3b90a695d88e}</Project>
+      <Name>cco.devops.extension.framework.core</Name>
     </ProjectReference>
     <ProjectReference Include="..\cco.devops.extension.framework.iis\cco.devops.extension.framework.core.iis.csproj">
       <Project>{074a0cd6-4651-4454-9948-062dd2b0ecf0}</Project>
@@ -102,7 +105,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Execution\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

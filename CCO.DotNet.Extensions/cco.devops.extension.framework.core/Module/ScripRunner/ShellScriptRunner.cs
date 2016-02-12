@@ -4,11 +4,10 @@ using cco.devops.extension.transversal.dto.ValueObject.Scripts;
 using cco.devops.extension.transversal.dto.Enums.Nlog;
 using cco.devops.extension.framework.core.Tracker.Log;
 using System.Diagnostics;
-using System.Reflection;
 
 namespace cco.devops.extension.framework.core.Module.ScripRunner
 {
-    public class ScriptRunner:IShellScriptExecutionable
+    public class ShellScriptRunner :IShellScriptExecutionable
     {
         public bool ExecuteBatThatTriggerPowerShell(PowerShellScriptVo shellScript)
         {
